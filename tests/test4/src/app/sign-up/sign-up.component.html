@@ -1,0 +1,116 @@
+<div style="margin: auto; display: flex; justify-content: center;">
+  <div style="border-style: solid; padding: 40px; margin-top: 10px;">
+  <form  (submit)="signUp($event)" style="display: table;">  
+    <h1 style="margin: auto; display: flex; justify-content: center">
+      Sign up
+    </h1>
+    <br>
+    <div name="firstNameForm" class="divForm" >
+      <label>First name</label>
+      <input name="firstName" [(ngModel)]="firstName" maxlength="30"/>
+    </div>
+    <div class="divForm" >
+      <p class="errorMessage" [hidden]="hiddenErrorMessageFirst"> {{ firstErrorMess }} </p>
+    </div>
+    
+    <div name="lastNameForm" class="divForm">
+      <label>Last name</label>
+      <input name="lastName" [(ngModel)]="lastName" maxlength="30" />
+    </div>
+    <div class="divForm" [hidden]="hiddenErrorMessageLast">
+      <p class="errorMessage"> {{ lastErrorMess}} </p>
+    </div>
+
+    <div name="birthdayForm" class="divForm">
+      <label>Birthday</label>
+      <select name="yearOfBirth" [(ngModel)]="selYear" style="margin-right: 5px;">
+        <option *ngFor="let y of years">{{ y }}</option>
+      </select>
+      <select
+        name="monthOfBirth"
+        [(ngModel)]="selectedMonth"
+        name="selectedMonth"
+        required
+        style="margin-right: 5px;"
+      >
+        <option *ngFor="let m of months" [disabled]="!m.selectable">{{ m.name }}</option>
+      </select>
+      <select name="dateOfBirth" [(ngModel)]="selDay">
+        <option *ngFor="let d of days" >{{ d }}</option>
+      </select>
+    </div>
+    <div class="divForm" [hidden]="hiddenErrorMessageBday">
+      <p class="errorMessage"> {{ bdayErrorMess}} </p>
+    </div>
+
+
+    <div class="divForm">
+      <label>Gender</label>
+      <div style="display: inline;">
+        <input
+          id="m_male"
+          type="radio"
+          class="m_custom-control-input"
+          value="male"
+          name="gender"
+          [(ngModel)]="male"
+          required
+        />
+        <label class="m_custom-control-label" for="m_male">Male</label>
+      </div>
+      <div style="display: inline">
+        <input
+          id="m_female"
+          type="radio"
+          class="m_custom-control-input"
+          value="female"
+          name="gender"
+          [(ngModel)]="female"
+          required />
+        <label class="m_custom-control-label" for="m_female">Female</label>
+      </div>
+    </div>
+    <div class="divForm" [hidden]="hiddenErrorMessageGender">
+      <p class="errorMessage"> {{ genderErrorMess }} </p>
+    </div>
+
+
+    <div name="emailForm" class="divForm">
+      <label>E-mail</label>
+      <input name="email" [(ngModel)]="email" />
+      <div *ngIf="hiddenErrorMessagePass"></div>
+    </div>
+    <div class="divForm" [hidden]="hiddenErrorMessageEmail">
+      <p class="errorMessage"> {{emailErrorMess}} </p>
+    </div>
+
+    <div name="postalCodeForm" class="divForm">
+      <label>Postal code</label>
+      <input type="number" name="email"  [(ngModel)]="postalCode" (change)="generateCityName()"/>
+    </div>
+    <div class="divForm" [hidden]="hiddenErrorMessagePostalCode">
+      <p class="errorMessage"> {{postalCodeErrorMess}} </p>
+    </div>
+
+    <div name="cityForm" class="divForm">
+      <label>City</label>
+      <input name="city" [(ngModel)]="city" disabled/>
+    </div>
+    <div class="divForm" [hidden]="hiddenErrorMessageCity">
+      <p class="errorMessage"> {{cityErrorMess}} </p>
+    </div>
+
+    <div name="passwordForm" class="divForm">
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="password"  maxlength="15"/>
+    </div>
+    <div class="divForm" [hidden]="hiddenErrorMessagePass">
+      <p class="errorMessage"> {{passErrorMess}} </p>
+    </div>
+
+    <div class="divForm">
+      <input type="submit" value="Sign up" (click)='signUp($event)'/>
+    </div>
+  </form>
+</div>
+</div>

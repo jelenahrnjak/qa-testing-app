@@ -1,0 +1,108 @@
+<body>
+<section class="vh-200 bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+    <div class="mask d-flex align-items-center h-50 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100" >
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6" >
+            <div class="card" style="border-radius: 15px;margin-top: 50px;margin-bottom: 20px;">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">Sign Up</h2>
+  
+                <form>  
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" required maxlength="30" [(ngModel)]="firstName" name="first">
+                    <label class="form-label" for="form3Example1cg">First Name *</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" required maxlength="30" [(ngModel)]="lastName" name="last"/>
+                    <label class="form-label" for="form3Example1cg">Last Name *</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg">Date of Birth </label>
+                
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                        <select name="monthsOptions" id="monthsOptions" [(ngModel)]="month" (change)="changeMonth($event)">
+                            <option value="jan">January</option>
+                            <option value="feb">February</option>
+                            <option value="mar">March</option>
+                            <option value="apr">April</option>
+                            <option value="may">May</option>
+                            <option value="june">June</option>
+                            <option value="july">July</option>
+                            <option value="aug">August</option>
+                            <option value="sep">September</option>
+                            <option value="oct">October</option>
+                            <option value="nov">November</option>
+                            <option value="dec">December</option>
+                        </select>
+                        </div>
+
+                        <div class="col-md-3 mb-2">
+                            <select>
+                                <option *ngFor="let d of days">{{ d }}</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3 mb-2" style="right: 13%;">
+                            <select>
+                                <option *ngFor="let y of years">{{ y }}</option>
+                            </select>
+                        </div>
+                    </div>
+                  </div>
+
+                  <label class="form-label" for="form3Example3cg">Sex</label>
+                  <div class="row">
+                    <div class="col-md-3 mb-2">
+                      <input type="radio" id="female" name="fav_language" value="Female">
+                      <label for="female">Female</label><br>
+                    </div>
+                    <div class="col-md-3 mb-2" style="right: 10%;">
+                      <input type="radio" id="male" name="fav_language" value="Male">
+                      <label for="male">Male</label><br>
+                    </div>  
+                  </div> <br>
+
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example3cg" class="form-control form-control-lg" required  [(ngModel)]="email" name="email"/>
+                    <label class="form-label" for="form3Example3cg"> Email *</label>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example3cg" class="form-control form-control-lg" [(ngModel)]="postalCode" name="postalCode" (change)="determineCity()"/>
+                    <label class="form-label" for="form3Example3cg">Postal Code</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example3cg" class="form-control form-control-lg" [(ngModel)]="city" name="city" disabled/>
+                    <label class="form-label" for="form3Example3cg">City</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form3Example4cg" class="form-control form-control-lg" required [(ngModel)]="password" name="pass1" maxlength="15"/>
+                    <label class="form-label" for="form3Example4cg">Password *</label>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form3Example4cdg" class="form-control form-control-lg" required [(ngModel)]="repeatPassword" name="pass2" maxlength="15"/>
+                    <label class="form-label" for="form3Example4cdg">Repeat your password *</label>
+                  </div>
+                  <br> <br>
+  
+                  <div class="d-flex justify-content-center">
+                    <input type ="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" (click)="registerUser()" value="Save">
+                  </div>
+                </form>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <ngx-alerts></ngx-alerts>
+</body>

@@ -1,0 +1,26 @@
+
+
+<mat-card *ngIf="!isClicked" class="card mat-card-cvr">
+<h4 style="margin-top: 30ch;">Select test</h4>
+<mat-form-field>
+  <mat-label>Tests</mat-label>
+  <mat-select [formControl]="allTests">
+    <mat-option *ngFor="let test of tests" [value]="test">
+      {{test.title}}
+    </mat-option>
+
+  </mat-select>
+</mat-form-field>
+  <button (click)="onClick()" [disabled]="!activeTest">Activate test</button>
+<div style="height: 10ch;"></div>
+<div *ngIf="activeTest" [innerHtml]=activeTest.data></div>
+</mat-card>
+
+<div *ngIf="isClicked" style="text-align: center; margin: 45vh 40vh;"> 
+
+  <h1 style="color: #5cd3b4; font-size: 6vh;">The test will start soon. Please wait.</h1>
+  <h1> After 150 minutes, the test will no longer be available.</h1>
+</div>
+
+
+

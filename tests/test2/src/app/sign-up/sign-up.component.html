@@ -1,0 +1,116 @@
+<section class="h-100 h-custom" style="background-color: #8fc4b7;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-8 col-xl-6">
+          <div class="card rounded-3">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Sign up</h3>
+  
+              <form class="px-md-2">
+  
+                <!-- First Name -->
+                <div class="form-outline mb-3">
+                  <input type="text" id="form3Example1q" class="form-control" [(ngModel)]="firstName" name="first"/>
+                  <label class="form-label" for="form3Example1q">First name*</label>
+                </div>
+                <!-- First Name -->
+  
+                <!-- Last Name -->
+                <div class="form-outline mb-3">
+                  <input type="text" id="form3Example1q" class="form-control" [(ngModel)]="lastName" name="last" />
+                  <label class="form-label" for="form3Example1q" >Last name*</label>
+                </div>
+                <!-- Last Name -->
+  
+                <!-- Birthday -->
+                <div class="row">
+                  <div class="col-md-3 mb-2">
+                    <select class="select" [(ngModel)]="month" name="month" (change) = findDays()>
+                      <option *ngFor="let m of months">{{m}}</option>
+                    </select>
+                  </div>
+                
+                  <div class="col-md-2 mb-2">
+                    <select class="select" [(ngModel)]="day" name="day">
+                      <option *ngFor="let d of days">{{d}}</option>
+                    </select>
+                  </div>
+  
+                  <div class="col-md-3 mb-2">
+                    <select class="select" [(ngModel)]="year" name="year">
+                      <option *ngFor="let y of years">{{y}}</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <div class="form-outline mb-1">
+                  <label class="form-label" for="form3Example1q">Birthday</label>
+                </div>
+                <!-- Birthday -->
+  
+                <!-- Sex -->
+                <div class="row">      
+                  <div class="col-md-4 mb-1">
+                    <input type="radio" id="html" name="fav_language" value="Female" [(ngModel)]="sex" name="sex1">
+                    <label for="html">Female</label><br>
+                  </div>
+                  <div class="col-md-4 mb-1">
+                    <input type="radio" id="html" name="fav_language" value="Male" [(ngModel)]="sex" name="sex2" disabled>
+                    <label for="html">Male</label><br>
+                  </div>
+                </div>
+                <div class="form-outline mb-1">
+                  <label class="form-label" for="form3Example1q">Sex</label>
+                </div>
+                <!-- Birthday -->
+  
+                <!-- Email -->
+                <div class="form-outline mb-3">
+                  <input type="text" id="form3Example1q" class="form-control" [(ngModel)]="email" name="email"/>
+                  <label class="form-label" for="form3Example1q" >E-mail*</label>
+                </div>
+                <!-- Email -->
+  
+  
+                <!-- Postal code and City -->
+                <div class="row mb-4 pb-2 pb-md-0 mb-md-4">
+                  <div class="col-md-6">
+  
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1w" class="form-control" [(ngModel)]="postalCode" name="pcode" (change) = findCity()/>
+                      <label class="form-label" for="form3Example1w">Postal code</label>
+                    </div>
+  
+                  </div>
+  
+                  <div class="col-md-6">
+  
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1w" class="form-control" [(ngModel)]="city" name="city" disabled/>
+                      <label class="form-label" for="form3Example1w">City</label>
+                    </div>
+  
+                  </div>
+                </div>
+                <!-- Postal code and City -->
+  
+                <!-- Password -->
+                <div class="form-outline mb-3">
+                  <input type="password" id="form3Example1q" class="form-control" [(ngModel)]="password" name="pass"/>
+                  <label class="form-label" for="form3Example1q">Password*</label>
+                </div>
+                <!-- Password -->
+  
+                <!-- Submit -->
+                <button type="submit" class="btn btn-success btn-lg mb-1" (click)="onSubmit()">Submit</button>
+                <!-- Submit -->
+  
+              </form>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

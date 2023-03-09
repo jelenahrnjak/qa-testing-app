@@ -1,0 +1,121 @@
+html {
+    height: 100%; 
+}
+
+body {
+    color: #999;
+    background: #f3f3f3;
+    font-family: 'Roboto', sans-serif;  
+    line-height:25px;
+    margin: 0;
+    padding: 0;
+    height: 95%;
+}
+.form-control {
+    border-color: #eee;
+    min-height: 41px;
+    box-shadow: none !important;
+}
+
+input.ng-invalid.ng-touched {
+    border: red 1px solid;
+} 
+ 
+.invalid
+{
+    border:1px solid #f00;
+}
+
+.normal
+{  
+    border:1px solid #eee;
+}
+.drop {
+    border-color: #eee;
+    min-width: 103px;
+    max-width: 103px;
+    min-height: 41px; 
+    box-shadow: none !important;
+}
+
+.radio {
+    border-color: #eee;
+    min-height: 20px;
+    box-shadow: none !important; 
+}
+ 
+.form-control:focus {
+    border-color: #5cd3b4;
+}
+.form-control, .btn {        
+    border-radius: 3px;
+}
+.signup-form {
+    width: 650px; 
+    margin: auto auto;
+    padding: 78px 30px;
+}
+.signup-form h2 {
+    color: #333;
+    margin: 0 0 30px 0;
+    display: inline-block;
+    padding: 0 30px 10px 0;
+    border-bottom: 3px solid #5cd3b4;
+}
+.signup-form form { 
+    color: #999;
+    border-radius: 2%;
+    margin: 3%;
+    background: #fff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.signup-form .form-group {
+    margin-bottom: 20px;
+}
+.signup-form label {
+    font-weight: normal;
+    font-size: 13px;
+}
+.signup-form input[type="checkbox"] {
+    margin-top: 2px;
+}
+.signup-form .btn {        
+    font-size: 16px;
+    font-weight: bold;
+    background: #5cd3b4;
+    border: none;
+    margin-top: 20px;
+    min-width: 140px;
+}
+.signup-form .btn:hover, .signup-form .btn:focus {
+    background: #41cba9;
+    outline: none !important;
+}
+.signup-form a {
+    color: #5cd3b4;
+    text-decoration: underline;
+}
+.signup-form a:hover {
+    text-decoration: none;
+}
+.signup-form form a {
+    color: #5cd3b4;
+    text-decoration: none;
+}	
+.signup-form form a:hover {
+    text-decoration: underline;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+ 

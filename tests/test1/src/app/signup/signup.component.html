@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<title>Bootstrap Sign up Form Horizontal</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+</head>
+<body>
+<div class="signup-form">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit();" action="/examples/actions/confirmation.php" method="post" class="form-horizontal" >
+		<div class="col-xs-8 col-xs-offset-4">
+			<h2>Sign Up</h2>
+		</div>		
+        <div class="form-group">
+			<label class="control-label col-xs-4">First name*</label>
+			<div class="col-xs-8">
+            <input type="text"  class="form-control " formControlName="firstName" (change)="nameChanged($event)"  [ngClass]="{'invalid': (signUpForm.controls['firstName'].invalid && submitted) , 'normal' : signUpForm.controls['firstName'].valid}">   
+            <label style="color: #c1121f;">{{ messageName }}</label>
+       </div>        	
+        </div> 
+      <div class="form-group">
+            <label class="control-label col-xs-4">Last name*</label>
+            <div class="col-xs-8">
+                <input type="text" class="form-control" formControlName="lastName" (change)="lastChanged($event)"  [ngClass]="{'invalid': (signUpForm.controls['lastName'].invalid && submitted) , 'normal' : signUpForm.controls['lastName'].valid}">
+                <label style="color: #c1121f;">{{ messageLast }}</label>
+            </div>        	
+        </div>
+        
+      <div class="form-group">
+			  <label class="control-label col-xs-4">Date of birth</label>
+			<div class="col-xs-8 row"> 
+        
+                <div class="col-sm-4" >
+                  <select class="form-control drop" formControlName="daysOption">
+                      <option disabled selected>Day</option>
+                      <option
+                        *ngFor="let day of days" 
+                        [value]="day"
+                      >
+                        {{ day }}
+                      </option>
+                    </select>
+              </div>
+                <div class="col-sm-4" >
+                    <select class="form-control drop" formControlName="monthsOption" (change)="monthChanged($event)">
+                      <option disabled selected>Month</option>
+                        <option
+                          *ngFor="let month of months" 
+                          [value]="month"
+                        >
+                          {{ month }}
+                        </option>
+                      <option disabled>Dec</option>
+                      </select>
+                </div>
+                <div class="col-sm-4" > 
+                  <select class="form-control drop" formControlName="yearsOption" (change)="yearChanged($event)">
+                    <option disabled selected>Year</option>
+                    <option
+                      *ngFor="let year of years" 
+                      [value]="year" 
+                    > 
+                      {{ year }}
+                    </option>
+                  </select>
+                </div>
+                
+            </div>        	
+        </div>
+        
+        <div class="form-group">
+			<label class="control-label col-xs-4">Sex</label>
+			<div class="col-xs-8 row"> 
+                <div class="custom-control custom-radio custom-control-inline col-sm-6" >
+                    <input type="checkbox" class="custom-control-input col-sm-4" formControlName="femaleOption" name="femaleOption">
+                    <label class="custom-control-label" for="femaleOption">Female</label>
+                  </div>
+                   
+                  <div class="custom-control custom-radio custom-control-inline col-sm-6">
+                    <input type="checkbox" class="custom-control-input col-xs-4" formControlName="maleOption" name="maleOption">
+                    <label class="custom-control-label" for="maleOption">Male</label>
+                  </div>
+            </div>        	
+        </div>
+		<div class="form-group">
+			<label class="control-label col-xs-4">E mail*</label>
+			<div class="col-xs-8">
+                <input type="email" class="form-control" formControlName="email"  [ngClass]="{'invalid': (signUpForm.controls['email'].invalid && submitted) , 'normal' : signUpForm.controls['email'].valid}">
+            </div>        	
+        </div> 
+		<div class="form-group">
+			<label class="control-label col-xs-4">Postal code</label>
+			<div class="col-xs-8">
+                <input type="number" class="form-control" formControlName="postalCode" (change)="pcChanged($event)" (keydown)="pcChanged($event)" (keyUp)="pcChanged($event)" [ngClass]="{'invalid': (signUpForm.controls['postalCode'].invalid && submitted) , 'normal' : signUpForm.controls['postalCode'].valid}">
+            </div>        	
+        </div> 
+		<div class="form-group">
+			<label class="control-label col-xs-4">City</label>
+			<div class="col-xs-8">
+                <label type="text" class="form-control">{{ city }}</label>
+            </div>        	
+        </div>
+		<div class="form-group">
+			<label class="control-label col-xs-4">Password</label>
+			<div class="col-xs-8">
+            <input type="password" class="form-control" formControlName="password" (keydown)="passChanged($event)" (keyUp)="passChanged($event)"> 
+            <label style="color: #c1121f;">{{ message }}</label>
+        </div>        	
+        </div> 
+		<div class="form-group">
+			<div class="col-xs-8 col-xs-offset-4">
+				<button type="submit" class="btn btn-primary btn-lg" [disabled]="!signUpForm.valid || invButt">Save</button>
+			</div>  
+		</div>		      
+    </form> 
+</div>
+</body>
+</html>
